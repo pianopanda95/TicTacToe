@@ -9,16 +9,15 @@
 </head>
 <body>
     <nav id="players">
-        <form>
-            <label for="playerX">First player: </label>
-            <br>
-            <input type="text" id="playerX" name="playerX">
-        </form>
-        <form>
-            <label for="playerY">Second player: </label>
-            <br>
-            <input type="text" id="playerY" name="playerY">
-        </form>
+        <fieldset>
+            <legend>First player</legend>
+            <input type="text" id="playerX" name="playerX" maxlength="20">
+        </fieldset>
+        <button id="start">START</button>
+        <fieldset>
+            <legend>Second player</legend>
+            <input type="text" id="playerY" name="playerY" maxlength="20">
+        </fieldset>
     </nav>
 
     <main id="gameboard">
