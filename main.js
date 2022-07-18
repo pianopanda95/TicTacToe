@@ -4,11 +4,9 @@ const startBtn = document.querySelector('button#start');
 
 
 const markers = ['X', 'O']
-startBtn.addEventListener('click', (e) => {
-    if (!inputs.every(inp => inp.value)){
-        console.log('yes')
+startBtn.addEventListener('click', () => {
+    if (!inputs.every(inp => inp.value))
         return;
-    }
     
     inputs.map((input, index) => {
         const inputName = input.value;
@@ -21,28 +19,36 @@ startBtn.addEventListener('click', (e) => {
 
         const playerMarker = document.createElement('p');
         playerMarker.classList.add('player-marker');
-        playerMarker.innerText = markers[index];
+        playerMarker.innerText = `${markers[index]}`;
         playersFieldset[index].appendChild(playerMarker);
     });
 
     startBtn.remove();
+    startGame();
 });
 
+const startGame = () => {
+    const toggleActivePlayer = () => {
+        playersFieldset.map(fieldset => {
+            fieldset.getAttribute('class') === 'active' ?
+            fieldset.classList.remove('active') :
+            fieldset.classList.add('active');
+        })
+    }
 
+    const gameboard = document.querySelector('main#gameboard');
+    const gameboardArray = Array(9).fill('', 0);
 
-
-
-
-const gameboard = document.querySelector('main#gameboard');
-const gameboardArray = Array(9).fill('', 0);
-
-gameboardArray.map(x => {
-    const field = document.createElement('button');
-    field.classList.add('field');
-    gameboard.appendChild(field);
-    field.addEventListener('click', () => {
-        field.innerText = 'X';
-        field.setAttribute('disabled', 'disabled')
+    gameboardArray.map(x => {
+        const field = document.createElement('button');
+        field.classList.add('field');
+        gameboard.appendChild(field);
+        field.addEventListener('click', () => {
+            const marker = document.querySelector('fieldset.active > p.player-marker').textContent;
+            field.innerText = marker;
+            toggleActivePlayer();
+            field.setAttribute('disabled', 'disabled')
+        });
     });
-});
 
+}

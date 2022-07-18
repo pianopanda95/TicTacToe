@@ -2,21 +2,74 @@
     /* font-family: comic, sans-serif; */
     font-size: 2rem;
     text-align: center;
+    color: aliceblue;
+    --dark-blue: rgb(0, 36, 136);
+    --player-active-color: midnightblue;
+    /* --main-bg-color:  */
 }
 
 body {
-    background-color: darkgray;
+    background-color: lightsalmon;
 }
 
 nav {
-    /* width: 80%;
-    margin: 0 auto; */
-    justify-content: space-around;
+    margin: 20px;
     display: flex;
+    justify-content: center;
+    column-gap: 5vw;
 }
 
-form {
-    /* font-size: 2rem; */
+fieldset {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: steelblue;
+}
+
+fieldset.active {
+    background-color: var(--player-active-color);
+    box-shadow: 5px 5px orangered;
+}
+
+fieldset.active > legend {
+    background-color: var(--player-active-color);
+}
+
+legend {
+    padding: .2rem .8rem;
+    border-radius: 50%;
+    border-top: 2px solid black;
+    background-color: steelblue;
+    ;
+}
+
+input {
+    font-size: 1.2rem;
+    border-radius: 3px;
+    background-color: aquamarine;
+    width: 20vw;
+}
+
+input:focus {
+    background-color: rgb(90, 234, 186);
+}
+
+button#start {
+    border-radius: 50%;
+    background-color: var(--dark-blue);
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+button#start:hover {
+    background-color: aqua;
+    color: var(--dark-blue);
+}
+
+p {
+    margin: 0 auto .2rem;
+
 }
 
 #gameboard {
@@ -27,7 +80,7 @@ form {
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 2px;
     background-color: black;
-    border: 5px solid rgb(0, 130, 211);
+    border: 5px solid var(--dark-blue);
     border-radius: 5px;
 }
 
