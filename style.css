@@ -1,0 +1,41 @@
+:root {
+    /* font-family: comic, sans-serif; */
+    font-size: 2rem;
+    text-align: center;
+}
+
+body {
+    background-color: darkgray;
+}
+
+nav {
+    /* width: 80%;
+    margin: 0 auto; */
+    justify-content: space-around;
+    display: flex;
+}
+
+form {
+    /* font-size: 2rem; */
+}
+
+#gameboard {
+    height: 60vh;
+    width: 60vh;
+    margin: 2rem auto;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    gap: 2px;
+    background-color: black;
+    border: 5px solid rgb(0, 130, 211);
+    border-radius: 5px;
+}
+
+#gameboard .field {
+    border: none;
+    background-color: aqua;
+    font-size: 3rem;
+}
+#gameboard .field:disabled {
+    background-color: rgb(147, 255, 255);
+}
