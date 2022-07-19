@@ -25,7 +25,6 @@ input, button {
 
 body {
     background-color: var(--bg-color);
-    /* background-image: linear-gradient(lightsalmon, rgb(255, 98, 0)); */
 }
 
 nav {
@@ -112,8 +111,7 @@ p.player-name {
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 2px;
     background-color: var(--inactive-color);
-    /* border: 5px solid var(--dark-blue); */
-    /* border-radius: 5px; */
+    border-radius: 5px;
 }
 
 #gameboard .field {
@@ -125,8 +123,21 @@ p.player-name {
 #gameboard .field:disabled {
     outline: none;
     background-color: var(--bg-color);
-    /* background-color: transparent; */
     background-image: linear-gradient(red, black);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: pulse 1s infinite;
+}
+
+div.pop-up {
+    position: absolute;
+    top: 30vh;
+    height: 65vh;
+    width: 35vw;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 5px solid black;
+    padding: 15vh 3vh;
+    background-image: linear-gradient(to top, maroon, yellow);
+    font-size: 2rem;
 }
