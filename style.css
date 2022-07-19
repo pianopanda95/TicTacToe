@@ -1,15 +1,31 @@
 :root {
     /* font-family: comic, sans-serif; */
-    font-size: 2rem;
-    text-align: center;
-    color: aliceblue;
+    --bg-color: rgb(0, 0, 50);
     --dark-blue: rgb(0, 36, 136);
-    --player-active-color: midnightblue;
-    /* --main-bg-color:  */
+    --active-color: midnightblue;
+    --inactive-color: royalblue;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0;
+    color: var(--bg-color);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+input, button {
+    appearance: none;
+    border: none;
+    background: none;
+    outline: none;
 }
 
 body {
-    background-color: lightsalmon;
+    background-color: var(--bg-color);
+    /* background-image: linear-gradient(lightsalmon, rgb(255, 98, 0)); */
 }
 
 nav {
@@ -22,24 +38,34 @@ nav {
 fieldset {
     border: 2px solid black;
     border-radius: 10px;
-    background-color: steelblue;
+    background-color: var(--inactive-color);
+    width: 25vw;
 }
 
 fieldset.active {
-    background-color: var(--player-active-color);
-    box-shadow: 5px 5px orangered;
+    background-color: var(--active-color);
+    box-shadow: 6px 6px orangered;
+    animation: pulse 2s infinite;
+    
 }
 
 fieldset.active > legend {
-    background-color: var(--player-active-color);
+    background-color: var(--active-color);
+    color: gold;
+}
+
+fieldset.active > p {
+    background-image: linear-gradient(to right,
+                    maroon, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 legend {
     padding: .2rem .8rem;
     border-radius: 50%;
     border-top: 2px solid black;
-    background-color: steelblue;
-    ;
+    background-color: var(--inactive-color);
 }
 
 input {
@@ -56,39 +82,51 @@ input:focus {
 button#start {
     border-radius: 50%;
     background-color: var(--dark-blue);
-    color: aliceblue;
+    color: gold;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 500;
     padding: .5rem;
 }
 
 button#start:hover {
-    background-color: aqua;
+    background-color: gold;
     color: var(--dark-blue);
 }
 
 p {
     margin: 0 auto .2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
 
+p.player-name {
+    font-size: 1.4rem;
 }
 
 #gameboard {
-    height: 60vh;
-    width: 60vh;
+    height: min(55vh, 50vw);
+    width: min(55vh, 50vw);
     margin: 2rem auto;
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     gap: 2px;
-    background-color: black;
-    border: 5px solid var(--dark-blue);
-    border-radius: 5px;
+    background-color: var(--inactive-color);
+    /* border: 5px solid var(--dark-blue); */
+    /* border-radius: 5px; */
 }
 
 #gameboard .field {
     border: none;
-    background-color: aqua;
+    background-color: var(--active-color);
     font-size: 3rem;
 }
+
 #gameboard .field:disabled {
-    background-color: rgb(147, 255, 255);
+    outline: none;
+    background-color: var(--bg-color);
+    /* background-color: transparent; */
+    background-image: linear-gradient(red, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
